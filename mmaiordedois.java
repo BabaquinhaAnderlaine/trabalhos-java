@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class mmaiordedois {
 public static void main(String[] args){
@@ -8,6 +7,6 @@ if (a > b){
 }
 else{ 
     System.out.println (b + " é maior");
-  }
- }
+}
+}
 }
