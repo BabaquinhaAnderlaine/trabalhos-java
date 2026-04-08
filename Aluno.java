@@ -17,7 +17,7 @@ public class Aluno{
 
     public String apresenteSe(){
         return "o aluno eh:" + this.nome + "   | seu telefone eh: " + this.telefone + 
-        "  | sua data de nascimento: " + this.dtNascimento + "  | sua matricula";
+        "  | sua data de nascimento: " + this.dtNascimento + "  | sua matricula" + thi.mtr;
     }
 
     public String Saudacao(){
