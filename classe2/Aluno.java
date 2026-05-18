@@ -1,13 +1,26 @@
-class Aluno extends Pessoa {
-    String matricula;
+public class Aluno extends Pessoa {
 
-    Aluno(String nome, String fone, String cpf, String matricula) {
+    private String mtr;
+
+    public Aluno(String nome, String fone,
+                  String cpf, String mtr) {
+
         super(nome, fone, cpf);
-        this.matricula = matricula;
+        this.mtr = mtr;
     }
 
-    void aprende() {
-        System.out.println(nome + " está aprendendo.");
+    public String getMtr() {
+        return mtr;
+    }
+
+    @Override
+    public String saudacao() {
+
+        return "Oi, eu sou o aluno " + getNome();
+    }
+
+    public String aprende() {
+
+        return getNome() + " está aprendendo.";
     }
 }
-
