@@ -1,38 +1,42 @@
+import java.util.ArrayList;
+import java.util.List;
 public class Responsavel extends Pessoa {
 
-    private Aluno[] alunos;
+    public List<Alunos> alunos;
 
-    public Responsavel(String nome, String fone,
-                       String cpf, Aluno[] alunos) {
-
-        super(nome, fone, cpf);
-        this.alunos = alunos;
+    public Responsavel(String nome, String telefone, String cpf) {
+        super(nome, telefone, cpf);
+        this.alunos = new ArrayList<>();
     }
 
-    public Aluno[] getAlunos() {
+
+    public List<Alunos> getAlunos() {
         return alunos;
     }
 
-    @Override
-    public String saudacao() {
-
-        return "Olá, sou responsável pelos alunos.";
+    public void addAluno(Alunos aluno) {
+        this.alunos.add(aluno);
+    }
+    
+    public String Saudacao1() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Oi, eu sou ").append(getNome()).append(" | meu telefone eh: ").append(getTelefone()).append(" | meu cpf eh: ").append(getCpf());
+        if (!alunos.isEmpty()) {
+            sb.append(" | sou responsavel pelos alunos: ");
+            for (Alunos a : alunos) {
+                sb.append(a.getNome()).append(" (").append(a.getCpf()).append("), ");
+            }
+            sb.setLength(sb.length() - 2);
+        }
+        return sb.toString();
     }
 
-    public String mostrarAlunos() {
+    public void setAlunos(List<Alunos> alunos) {
+        this.alunos = alunos;
+    }
 
-        String texto =
-                "Alunos do responsável "
-                + getNome()
-                + ":\n";
-
-        for (Aluno aluno : alunos) {
-
-            texto += "- "
-                    + aluno.getNome()
-                    + "\n";
-        }
-
-        return texto;
+    @Override
+    public String Saudacao() {
+        return "Bem-vindo, responsável!";
     }
 }
