@@ -1,71 +1,33 @@
+// PESSOA
+
 public class Pessoa {
+
     private String nome;
-    private String telefone;
+    private String fone;
     private String cpf;
 
-    public Pessoa(String nome, String telefone, String cpf) throws DadoInvalidoException {
-    validar(nome, telefone, cpf);
-    this.nome = nome;
-    this.telefone = telefone;
-    this.cpf = cpf;
-}
-    protected void validar(String nome, String telefone, String cpf) throws DadoInvalidoException {
-        if (nome == null || nome.isBlank()) {
-            throw new DadoInvalidoException("Nome não pode ser vazio");
-        }
-        if (telefone == null || telefone.isBlank()) {
-            throw new DadoInvalidoException("Telefone não pode ser vazio");
-        }
-        if (cpf == null || !cpf.matches("\\d{11}")) {
-            throw new DadoInvalidoException("CPF deve ter 11 dígitos numéricos");
-        }
+    public Pessoa(String nome, String fone, String cpf) {
+
+        this.nome = nome;
+        this.fone = fone;
+        this.cpf = cpf;
     }
-    
+
     public String getNome() {
         return nome;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public String getFone() {
+        return fone;
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    // POLIMORFISMO
+    public String saudacao() {
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+        return "Olá, meu nome é " + nome;
     }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String Saudacao() {
-        return "Bem-vindo!";
-    }
-
-    public String comprimentar(Pessoa pessoa) {
-        return " | registro pessoal | \n" + pessoa.getNome();
-    }
-
-    public String comprimentar(Alunos aluno) {
-        return "o aluno chama : "+ aluno.getNome() + "| seu telefone eh: " + aluno.getTelefone() + "| sua matricula eh: " + aluno.getMtr1() + "| seu curso eh: " + aluno.getCurso();
-    }
-
-    public String comprimentar(Funcionario funcionario) {
-        return "o funcionario chama : "+ funcionario.getNome() + "| seu telefone eh: " + funcionario.getTelefone() + "| seu codigo eh: " + funcionario.getCod() + "| sua funcao eh: " + funcionario.getFuncao();
-    }
-    
-    public String comprimentar(Professor professor) {
-        return "o professor chama : "+ professor.getNome() + "| seu telefone eh: " + professor.getTelefone() + "| sua matricula eh: " + professor.getMtr1() + "| seu curso eh: " + professor.getCurso() + "| seu titulo eh: " + professor.getTitulo();
-    }
-
-    public String comprimentar(Responsavel responsavel) {
-        return "o responsavel chama : "+ responsavel.getNome() + "| seu telefone eh: " + responsavel.getTelefone() + "| seu cpf eh: " + responsavel.getCpf() + "| ele eh responsavel por " + responsavel.getAlunos().size() + " alunos.";
-    }
- }
+}
