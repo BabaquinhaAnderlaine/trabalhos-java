@@ -1,21 +1,32 @@
-public class Professor extends Alunos {
-    public String titulo;
+// PROFESSOR
 
-    public Professor(String mtr1, String nome, String telefone, String cpf, String curso, String titulo) {
-        super(mtr1, nome, telefone, cpf, curso);
+public class Professor extends Aluno {
+
+    private String titulo;
+
+    public Professor(String nome, String fone,
+                     String cpf, String mtr,
+                     String titulo) {
+
+        super(nome, fone, cpf, mtr);
         this.titulo = titulo;
     }
-   
+
     public String getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    @Override
+    public String saudacao() {
+
+        return "Olá, sou o professor "
+                + getNome()
+                + ", título: "
+                + titulo;
     }
 
-    @Override
-    public String Saudacao() {
-        return "Bem-vindo, professor!";
+    public String ensina() {
+
+        return getNome() + " está ensinando.";
     }
 }
